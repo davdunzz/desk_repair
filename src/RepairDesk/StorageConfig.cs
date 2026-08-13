@@ -56,4 +56,3 @@ public static class StorageConfig
             : Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "RepairDesk", "Schede PDF");
     }
 }
-  
