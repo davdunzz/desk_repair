@@ -1,0 +1,25 @@
+REPAIRDESK V2 - APPUNTAMENTI E CALENDARIO
+
+AGGIORNAMENTO PORTATILE
+- Modalità PC oppure PORTATILE selezionabile nelle impostazioni.
+- In modalità portatile database e PDF vengono salvati accanto al programma.
+- Possibilità di scegliere una cartella PDF personalizzata.
+- Copia automatica dell'archivio quando si cambia modalità.
+
+NOVITÀ
+- Data e ora appuntamento facoltative nella scheda.
+- Pulsante SALVA NELL'ARCHIVIO senza generare PDF.
+- Archivio con MODIFICA, ELIMINA e STAMPA / GENERA PDF.
+- Nuova sezione CALENDARIO con le riparazioni programmate.
+- Doppio clic su una prenotazione per spostarla o rimuoverla.
+- Appuntamento riportato anche nel PDF.
+
+AGGIORNAMENTO SU GITHUB
+Carica e sostituisci tutti i file del progetto nel repository, compreso il nuovo file:
+src/RepairDesk/AppointmentDialog.cs
+
+GitHub Actions creerà automaticamente la nuova versione Windows.
+
+DATI ESISTENTI
+Il database già presente viene aggiornato automaticamente al primo avvio.
+Le riparazioni salvate con la vecchia versione non vengono eliminate.
