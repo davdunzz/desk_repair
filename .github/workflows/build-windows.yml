@@ -1,0 +1,35 @@
+name: Crea RepairDesk per Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Scarica il progetto
+        uses: actions/checkout@v4
+
+      - name: Installa .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Ripristina dipendenze
+        run: dotnet restore RepairDesk.sln
+
+      - name: Compila e pubblica
+        run: dotnet publish src/RepairDesk/RepairDesk.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o publish/RepairDesk-Windows-x64
+
+      - name: Crea pacchetto ZIP
+        shell: powershell
+        run: Compress-Archive -Path publish/RepairDesk-Windows-x64/* -DestinationPath publish/RepairDesk-Windows-x64.zip
+
+      - name: Carica programma scaricabile
+        uses: actions/upload-artifact@v4
+        with:
+          name: RepairDesk-Windows-x64
+          path: publish/RepairDesk-Windows-x64.zip
+          retention-days: 30
