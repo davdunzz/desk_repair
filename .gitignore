@@ -1,0 +1,11 @@
+bin/
+obj/
+.vs/
+.idea/
+publish/
+*.user
+*.suo
+*.db
+*.db-shm
+*.db-wal
+*.pdf
